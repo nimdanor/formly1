@@ -1,0 +1,44 @@
+<!-- [nzLayout]="'vertical'" -->
+<nz-tabset>
+  <nz-tab nzTitle="Create">
+    <nz-layout>
+      <div class="inner-content">
+        <form nz-form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <formly-form [form]="form" [model]="model" [fields]="fields">
+          </formly-form>
+
+          <button nz-button nzType="primary" type="submit">Submit</button>
+          <button nz-button nzDanger type="reset">Reset</button>
+        </form>
+      </div>
+    </nz-layout>
+  </nz-tab>
+    <nz-tab nzTitle="result">
+    <nz-layout>
+      <div>
+      <pre>{{ model2 | json }}</pre>
+      <pre>{{ fields2 | json }}</pre>
+    </div>
+  </nz-layout>
+    <nz-layout>
+      <div class="inner-content">
+        <form
+          nz-form
+          [nzLayout]="'vertical'"
+          [formGroup]="form2"
+          (ngSubmit)="onSubmit2()"
+        >
+          <formly-form [form]="form2" [model]="model2" [fields]="fields2">
+            <button nz-button nzType="primary" type="submit">Submit</button>
+            <button nz-button nzDanger type="reset">Reset</button>
+          </formly-form>
+        </form>
+      </div>
+
+    </nz-layout>
+  </nz-tab>
+  <nz-tab nzTitle="Dates">
+  </nz-tab>
+
+
+  </nz-tabset>

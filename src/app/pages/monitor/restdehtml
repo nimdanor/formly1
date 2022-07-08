@@ -1,0 +1,164 @@
+<!-- [nzLayout]="'vertical'"
+
+
+<button [ngClass]="{ active: tab == 1 }" (click)="tab = 1">Create </button>
+<button [ngClass]="{ active: tab ==  2 }" (click)="tab = 2">View</button>
+<button [ngClass]="{ active: tab ==  3 }" (click)="tab = 3">ZEuh</button>
+ -->
+  <nz-tabset>
+    <nz-tab nzTitle="Create">
+      <nz-layout>
+        <div class="inner-content">
+          <form nz-form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <formly-form [form]="form" [model]="model" [fields]="fields">
+            </formly-form>
+  
+            <button nz-button nzType="primary" type="submit">Submit</button>
+            <button nz-button nzDanger type="reset">Reset</button>
+          </form>
+        </div>
+      </nz-layout>
+    </nz-tab>
+      <nz-tab nzTitle="result">
+      <nz-layout>
+        <div collapse>
+        <pre>{{ model2 | json }}</pre>
+        <pre>{{ fields2 | json }}</pre>
+      </div>
+        <div id="show">
+          <form
+            nz-form
+            [nzLayout]="'vertical'"
+            [formGroup]="form2"
+            (ngSubmit)="onSubmit2()"
+          >
+            <formly-form [form]="form2" [model]="model2" [fields]="fields2">
+              <button nz-button nzType="primary" type="submit">Submit</button>
+              <button nz-button nzDanger type="reset">Reset</button>
+            </formly-form>
+          </form>
+        </div>
+      </nz-layout>
+    </nz-tab>
+    <nz-tab nzTitle="Dates">
+    </nz-tab>
+  
+
+    </nz-tabset>
+  <!--
+    <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+    
+        <nz-range-picker [nzShowTime]="true" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+      <br />
+      <nz-range-picker nzMode="week" [(ngModel)]="date" (ngModelChange)="getWeek($event)"></nz-range-picker>
+      <br />
+      <nz-range-picker nzMode="month" [(ngModel)]="date" (ngModelChange)="getMonth($event)"></nz-range-picker>
+      <br />
+      <nz-range-picker nzMode="year" [(ngModel)]="date" (ngModelChange)="getYear($event)"></nz-range-picker>
+    
+  -->
+
+
+
+
+<button [ngClass]="{ active: tab == 1 }" (click)="tab = 1">Create </button>
+<button [ngClass]="{ active: tab ==  2 }" (click)="tab = 2">View</button>
+<button [ngClass]="{ active: tab ==  3 }" (click)="tab = 3">ZEuh</button>
+
+  <div [ngSwitch]="tab">
+    <div *ngSwitchCase="1">
+      <nz-layout>
+        <div class="inner-content">
+          <form nz-form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <formly-form [form]="form" [model]="model" [fields]="fields">
+            </formly-form>
+  
+            <button nz-button nzType="primary" type="submit">Submit</button>
+            <button nz-button nzDanger type="reset">Reset</button>
+          </form>
+        </div>
+      </nz-layout>
+    </div>
+    <div *ngSwitchCase="2">
+      <nz-layout>       
+        <pre>{{ model2 | json }}</pre>
+        <pre>{{ fields2 | json }}</pre>
+      </nz-layout>
+      <nz-layout>
+        <div id="show">
+          <form
+            nz-form
+            
+            [formGroup]="form2"
+            (ngSubmit)="onSubmit2()"
+          >
+            <formly-form [form]="form2" [model]="model2" [fields]="fields2">
+              <button nz-button nzType="primary" type="submit">Submit</button>
+              <button nz-button nzDanger type="reset">Reset</button>
+            </formly-form>
+          </form>
+        </div>
+      </nz-layout>
+    </div>
+    <div *ngSwitchCase="3">
+      <nz-tabset>
+        <nz-tab nzTitle="Create">
+          <nz-layout>
+
+
+            <div class="inner-content">
+              <form nz-form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <formly-form [form]="form" [model]="model" [fields]="fields">
+                </formly-form>
+      
+                <button nz-button nzType="primary" type="submit">Submit</button>
+                <button nz-button nzDanger type="reset">Reset</button>
+              </form>
+            </div>
+          </nz-layout>
+        </nz-tab>
+          <nz-tab nzTitle="result">
+          <nz-layout>
+            <div collapse>
+            <pre>{{ model2 | json }}</pre>
+            <pre>{{ fields2 | json }}</pre>
+          </div>
+            <div id="show">
+              <form
+                nz-form
+                [nzLayout]="'vertical'"
+                [formGroup]="form2"
+                (ngSubmit)="onSubmit2()"
+              >
+                <formly-form [form]="form2" [model]="model2" [fields]="fields2">
+                  <button nz-button nzType="primary" type="submit">Submit</button>
+                  <button nz-button nzDanger type="reset">Reset</button>
+                </formly-form>
+              </form>
+            </div>
+          </nz-layout>
+        </nz-tab>
+        <nz-tab nzTitle="Dates">
+          <nz-range-picker [nzShowTime]="true" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+          <br />
+          <nz-range-picker nzMode="week" [(ngModel)]="date" (ngModelChange)="getWeek($event)"></nz-range-picker>
+          <br />
+          <nz-range-picker nzMode="month" [(ngModel)]="date" (ngModelChange)="getMonth($event)"></nz-range-picker>
+          <br />
+          <nz-range-picker nzMode="year" [(ngModel)]="date" (ngModelChange)="getYear($event)"></nz-range-picker>
+        
+        </nz-tab>
+        </nz-tabset>
+    </div>
+    <div *ngSwitchDefault>Default</div>
+  </div>
+  <!--
+        <nz-range-picker [nzShowTime]="true" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+      <br />
+      <nz-range-picker nzMode="week" [(ngModel)]="date" (ngModelChange)="getWeek($event)"></nz-range-picker>
+      <br />
+      <nz-range-picker nzMode="month" [(ngModel)]="date" (ngModelChange)="getMonth($event)"></nz-range-picker>
+      <br />
+      <nz-range-picker nzMode="year" [(ngModel)]="date" (ngModelChange)="getYear($event)"></nz-range-picker>
+    
+  -->
