@@ -19,7 +19,66 @@ export class MonitorComponent implements OnInit {
   model: any = {};
   model2 = {};
   fields2: FormlyFieldConfig[] = [];
-  fields: FormlyFieldConfig[] = [];
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'type',
+      type: 'select',
+      defaultValue: 'input',
+      templateOptions: {
+        label: "Choisir le type d'input",
+        placeholder: 'Select placeholder',
+        required: true,
+        options: [
+          { label: 'select', value: 'select' },
+          { label: 'input', value: 'input' },
+          { label: 'textarea', value: 'textarea' },
+          { label: 'datepicker', value: 'datepicker' },
+          { label: 'checkbox', value: 'checkbox' },
+          { label: 'toggle', value: 'toggle' },
+          { label: 'radio', value: 'radio' },
+        ],
+      },
+    },
+    {
+      key: 'key',
+      type: 'input',
+      defaultValue: 'laclef',
+      templateOptions: {
+        label: 'key',
+        placeholder: 'Input placeholder',
+        required: false,
+      },
+    },
+    {
+      key: 'label',
+      type: 'input',
+      defaultValue: 'laclef',
+      templateOptions: {
+        label: 'le label',
+        placeholder: 'Input placeholder',
+        required: false,
+      },
+    },
+
+    {
+      key: 'placeholder',
+      type: 'textarea',
+      defaultValue: 'This is a default value',
+      templateOptions: {
+        label: 'Place holder',
+        placeholder: 'Textarea placeholder',
+        required: true,
+      },
+    },
+    {
+      key: 'required',
+      type: 'checkbox',
+      defaultValue: false,
+      templateOptions: {
+        label: 'Champs obligatoire ?',
+      },
+    },
+  ];
 
   onSubmit() {
     // if (this.form.valid) {
